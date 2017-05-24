@@ -1,7 +1,7 @@
 var Candy = require('../models/Candy');
 
 // GET
-function getAll(request, response) { 
+function getAll(request, response) {
   Candy.find(function(error, candies) {
     if(error) response.json({message: 'Could not find any candy'});
 
@@ -23,7 +23,7 @@ function createCandy(request, response) {
     if(error) response.json({messsage: 'Could not ceate candy b/c:' + error});
 
     response.redirect('/candies');
-  });  
+  });
 }
 
 // GET
@@ -50,7 +50,7 @@ function updateCandy(request, response) {
       if(error) response.json({messsage: 'Could not update candy b/c:' + error});
 
       response.json({message: 'Candy successfully updated'});
-    });  
+    });
   });
 }
 
