@@ -12,10 +12,17 @@
 	</h1>
 	<div class="container">
 
+	<% if(user != undefined){ %>
+	    <h2>Below is the data sent by facebook</h2>
+	    <pre>
+	      <%= user.fb %>
+	    </pre>
+	    <a href="/logout">Logout</a>
+	  <% }  %>
 
 
 	<ul>
-		<% for(var i=0; i<= candies.length; i++) {  %>
+		<% for(var i=0; i< candies.length; i++) {  %>
 				<li>
 					<h4><b>Name : </b> <%= candies[i].name %><br></h4>
 					<b>Color : </b> <%= candies[i].color %>
@@ -26,8 +33,14 @@
 	</div>
 
 	<hr>
+
 	<div class="container">
-		<% include ./partials/candy/form %>
+		<% if (user) { %>
+			<% include ./partials/candy/form %>
+		<% } else { %>
+			You Need to be Logged In to Add Candies to the List. <br>
+			<a class ="btn" href="/auth/facebook">Login with Facebook</a>
+		<% } %>
 	</div>
 
 </body>

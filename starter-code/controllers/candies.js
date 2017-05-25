@@ -5,7 +5,7 @@ function getAll(request, response) {
   Candy.find(function(error, candies) {
     if(error) response.json({message: 'Could not find any candy'});
 
-    // response.json({message: candies});
+    //response.json({message: candies});
     response.render('layout', {candies: candies});
   });
 }
